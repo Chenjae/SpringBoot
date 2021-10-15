@@ -1,1 +1,37 @@
-<th:block th:replace="~{/common/layout}"></th:block>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">	
+<th:block th:replace="~{common/layout::setContent(~{this::content})}">
+<th:block th:fragment="content">
+	
+<div class="card">
+	<div class="card-header">
+		HOME
+	</div>
+	<div class="card-body">
+		<img th:src="@{/images/logo-springboot.png}" width="100px"/>
+		<hr/>
+	</div>
+</div>
+	
+</th:block>
+</th:block>
+</html>
+
+
+
+
+	<!--
+	헤더 넣기
+	<th:block th:replace="~{common/layout::header}"/>
+	
+	<div class="card">
+		<div class="card-header">
+			HOME
+		</div>
+		<div class="card-body">
+			
+		</div>
+	</div>
+	
+	<th:block th:replace="~{common/layout::footer}"/> -->
+	

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">	
+<th:block th:replace="~{common/layout::setContent(~{this::content})}">
+<th:block th:fragment="content">
+	
+<div class="card">
+	<div class="card-header">
+		Variable Expressions
+	</div>
+	<div class="card-body">
+		<div>Login ID : [[${session.sessionMid}]]</div>
+		<div>
+			<a th:if="${session.sessionMid == null}" href="variableExpressions" class="btn btn-sm btn-info">로그인</a>
+			<a th:if="${session.sessionMid != null}" href="variableExpressions" class="btn btn-sm btn-info">로그아웃</a>
+		</div>
+		<div>
+			<!-- null일 경우 null로 출력 -->
+			<!-- th: 안에는 프로그램적 코드가 들어가야한다. ''를 안해줄 경우 변수로 인식해 오류 발생 -->
+			<div th:text="${'Current user: ' + session.sessionMid}"></div>
+			<div th:text="'Current user: ' + ${session.sessionMid}"></div>
+			<div th:text="|Current user: ${session.sessionMid}|"></div>
+			
+			
+			<!--  null일 경우 빈공백으로 출력 -->
+			<div th:text="'Current user: ' + (${session.sessionMid}?${session.sessionMid}:'')"></div>
+			<div>Current user: [[${session.sessionMid}]]</div>
+		</div>
+	</div>
+</div>
+	
+</th:block>
+</th:block>
+</html>
