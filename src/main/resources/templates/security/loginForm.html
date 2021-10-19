@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/common/layout::setContent(~{this::content})}">
+<th:block th:fragment="content">	
+	
+<div class="card m-2">
+	<div class="card-header">
+		로그인 폼
+	</div>
+	<div class="card-body">
+		<div th:if="${loginError}" class="alert alert-danger mb-2">
+		  Wrong user or password
+		</div>			
+	
+		<!--/*
+		<form method="post" th:action="@{/login}">
+			<div class="input-group">d
+				<div class="input-group-prepend"><span class="input-group-text">mid</span></div>
+				<input type="text" name="mid" class="form-control" value="user">
+			</div>
+			<div class="input-group">
+				<div class="input-group-prepend"><span class="input-group-text">mpassword</span></div>
+				<input type="text" name="mpassword" class="form-control" value="12345">
+			</div>
+			<input class="btn btn-info btn-sm mt-2" type="submit" value="로그인"/>
+		</form>
+		*/-->
+		
+		<form method="post" th:action="@{/login}">
+			<div class="form-group">
+			    <label for="mid">Member ID</label>
+			    <input type="text" class="form-control" id="mid" name="mid" value="user">
+			</div>
+			<div class="form-group">
+				<label for="mpassword">Member Password</label>
+				<input type="password" class="form-control" id="mpassword" name="mpassword" value="12345">
+			</div>
+			<button type="submit" class="btn btn-info btn-sm mt-2">로그인</button>
+		</form>	
+	</div>
+</div>
+
+</th:block>
+</th:block>
+</html>
